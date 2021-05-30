@@ -1,6 +1,7 @@
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
         ansCnt = 0
+        tmpNums = nums[0] + 1
         for i in range(len(nums) - 1):
             if nums[i] >= nums[i+1]:
                 ansCnt += (nums[i] - nums[i+1] + 1)
