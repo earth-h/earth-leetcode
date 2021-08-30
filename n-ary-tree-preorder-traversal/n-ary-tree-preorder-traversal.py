@@ -8,6 +8,7 @@ class Node:
 
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
+        '''
         def preorderSolution(root: 'Node'):
             if root:
                 ans.append(root.val)
@@ -15,4 +16,19 @@ class Solution:
                     preorderSolution(child)
         ans = []
         preorderSolution(root)
+        return ans
+        '''
+        if not root:
+            return []
+        
+        stack = [root]
+        ans = []
+        
+        while stack:
+            curNode = stack.pop()
+            
+            ans.append(curNode.val)
+            
+            stack.extend(curNode.children[::-1])
+        
         return ans
