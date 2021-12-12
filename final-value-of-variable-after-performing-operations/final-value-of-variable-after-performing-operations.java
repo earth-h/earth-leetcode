@@ -2,20 +2,7 @@ class Solution {
     public int finalValueAfterOperations(String[] operations) {
         int x = 0;
         for(String operation: operations) {
-            switch(operation) {
-                case "++X":
-                    x += 1;
-                    break;
-                case "X++":
-                    x += 1;
-                    break;
-                case "--X":
-                    x -= 1;
-                    break;
-                case "X--":
-                    x -= 1;
-                    break;
-            }
+            x = operation.charAt(1) == '+' ? x + 1 : x - 1;
         }
         return x;
     }
