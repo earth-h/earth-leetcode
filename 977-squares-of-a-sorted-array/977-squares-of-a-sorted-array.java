@@ -1,10 +1,36 @@
 class Solution {
     public int[] sortedSquares(int[] nums) {
-        for(int idx = 0; idx < nums.length; idx++)
-            nums[idx] *= nums[idx];
-        Arrays.sort(nums);
-        return nums;
+
+        int numSize = nums.length;
+        
+        if(nums[0] >= 0) {
+            for(int idx = 0; idx < nums.length; idx++)
+                nums[idx] *= nums[idx];
+            return nums;
+        }
+        
+        int[] result = new int[numSize];
+        
+        int i = 0;
+        int j = numSize - 1; 
+        int idx = numSize - 1;
+        for(;i <= j;) {
+            if(nums[i] * nums[i] >= nums[j] * nums[j]) {
+                result[idx--] = nums[i] * nums[i];
+                i++;
+            } else {
+                result[idx--] = nums[j] * nums[j];
+                j--;
+            }
+        }
+        return result;
     }
+    // public int[] sortedSquares(int[] nums) {
+    //     for(int idx = 0; idx < nums.length; idx++)
+    //         nums[idx] *= nums[idx];
+    //     Arrays.sort(nums);
+    //     return nums;
+    // }
 }
 // class Solution {
 //     public int[] sortedSquares(int[] nums) {
