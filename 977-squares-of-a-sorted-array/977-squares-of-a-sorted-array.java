@@ -12,14 +12,14 @@ class Solution {
         int[] result = new int[numSize];
         
         int i = 0;
-        int j = numSize - 1; 
-        int idx = numSize - 1;
+        numSize -= 1;
+        int j = numSize; 
         for(;i <= j;) {
             if(nums[i] * nums[i] >= nums[j] * nums[j]) {
-                result[idx--] = nums[i] * nums[i];
+                result[numSize--] = nums[i] * nums[i];
                 i++;
             } else {
-                result[idx--] = nums[j] * nums[j];
+                result[numSize--] = nums[j] * nums[j];
                 j--;
             }
         }
