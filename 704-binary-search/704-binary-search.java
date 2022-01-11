@@ -1,18 +1,11 @@
 class Solution {
     public int search(int[] nums, int target) {
-        int numsSize = nums.length;
-        if(nums[numsSize/2] == target) {
-            return numsSize/2;
-        } else if(nums[numsSize/2] > target) {
-            for(int i = numsSize/2; i >= 0; i--) {
-                if(nums[i] == target) return i;
-                if(nums[i] < target) break;
-            }
-        } else {
-            for(int i = numsSize/2; i < numsSize; i++) {
-                if(nums[i] == target) return i;
-                if(nums[i] > target) break;
-            }
+        int left = 0, right = nums.length - 1;
+        while(left <= right) {
+            int mid = (left + right) / 2;
+            if(nums[mid] == target) return mid;
+            else if(nums[mid] > target) right = mid - 1;
+            else left = mid + 1;
         }
         return -1;
     }
