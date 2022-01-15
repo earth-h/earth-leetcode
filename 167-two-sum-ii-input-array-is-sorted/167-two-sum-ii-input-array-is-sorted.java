@@ -21,10 +21,9 @@ class Solution {
         int left = 0, right = numbers.length - 1;
         
         while(numbers[left] + numbers[right] != target) {
-            int total = numbers[left] + numbers[right];
-            if(total > target) {
+            if(numbers[left] + numbers[right] > target) {
                 right--;
-            } else if(total < target) {
+            } else if(numbers[left] + numbers[right] < target) {
                 left++;
             } else break;
         }
