@@ -3,7 +3,7 @@ class Solution {
         int ans = 0;
         for(int i = 0; i < nums.length - 1; i++) {
             for(int j = i + 1; j < nums.length; j++) {
-                if(Math.abs(nums[i] - nums[j]) == k)
+                if(nums[i] - nums[j] == k || nums[i] - nums[j] == -k)
                     ans++;
             }
         }
