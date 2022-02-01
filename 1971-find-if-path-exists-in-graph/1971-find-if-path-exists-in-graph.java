@@ -3,6 +3,8 @@ class Solution {
         if(source == destination && source < n) return true;
         int[] visited = new int[n];
         visited[source] = 1;
+        boolean[] found = new boolean[1];
+        found[0] = false;
         
         // edges > map
         Map<Integer, List<Integer>> edgeMap = new HashMap<>();
@@ -14,18 +16,25 @@ class Solution {
             edgeMap.get(edge[1]).add(edge[0]);
         }
         
-        return dfs(edgeMap, visited, source, destination);
+        dfs(edgeMap, visited, source, destination, found);
+        
+        return found[0];
     }
     
-    public boolean dfs(Map<Integer, List<Integer>> edgeMap, int[] visited, int source, int destination) {
+    public void dfs(Map<Integer, List<Integer>> edgeMap, int[] visited, int source, int destination, boolean[] found) {
+        if(found[0] == true) return;
         for(int next: edgeMap.get(source)) {
             if(visited[next] == 0) {
-                if(next == destination) return true;
-                visited[next] = 1;
-                if(dfs(edgeMap, visited, next, destination) == true) return true;
-                continue;
+                if(next == destination) {
+                    found[0] = true;
+                    return;
+                }
+                else {
+                    visited[next] = 1;
+                    dfs(edgeMap, visited, next, destination, found);
+                    if(found[0] == true) return;
+                }
             }
         }
-        return false;
     }
 }
