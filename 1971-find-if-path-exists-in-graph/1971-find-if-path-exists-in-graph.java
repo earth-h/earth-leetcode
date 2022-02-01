@@ -20,8 +20,8 @@ class Solution {
     public boolean dfs(Map<Integer, List<Integer>> edgeMap, int[] visited, int source, int destination) {
         for(int next: edgeMap.get(source)) {
             if(visited[next] == 0) {
-                visited[next] = 1;
                 if(next == destination) return true;
+                visited[next] = 1;
                 if(dfs(edgeMap, visited, next, destination) == true) return true;
                 continue;
             }
