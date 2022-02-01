@@ -23,7 +23,7 @@ class Solution {
                 visited[next] = 1;
                 if(next == destination) return true;
                 if(dfs(edgeMap, visited, next, destination) == true) return true;
-                continue;
+                else continue;
             }
         }
         return false;
