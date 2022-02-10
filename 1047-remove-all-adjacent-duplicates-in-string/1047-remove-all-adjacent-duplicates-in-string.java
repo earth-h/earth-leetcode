@@ -24,19 +24,32 @@
 //         return String.join("", strList);
 //     }
 // }
+// class Solution {
+//     public String removeDuplicates(String s) {
+//         String[] stringArray = s.split("");
+//         List<String> strList = new ArrayList<>();
+        
+//         for(String a : s.split("")) {
+//             int size = strList.size();
+//             if(size > 0 && strList.get(size - 1).equals(a))
+//                 strList.remove(size - 1);
+//             else
+//                 strList.add(a);
+//         }
+        
+//         return String.join("", strList);
+//     }
+// }
 class Solution {
     public String removeDuplicates(String s) {
-        String[] stringArray = s.split("");
-        List<String> strList = new ArrayList<>();
-        
-        for(String a : s.split("")) {
-            int size = strList.size();
-            if(size > 0 && strList.get(size - 1).equals(a))
-                strList.remove(size - 1);
+        StringBuilder sb = new StringBuilder();
+        for(char c : s.toCharArray()) {
+            int size = sb.length();
+            if(size > 0 && c == sb.charAt(size - 1)) 
+                sb.deleteCharAt(size - 1);
             else
-                strList.add(a);
+                sb.append(c);
         }
-        
-        return String.join("", strList);
+        return sb.toString();
     }
 }
