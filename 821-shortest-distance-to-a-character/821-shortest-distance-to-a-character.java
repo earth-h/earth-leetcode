@@ -13,16 +13,12 @@ class Solution {
         for(int i = 0; i < s.length(); i++) {
             if(location.get(idx) >= i)
                 result[i] = location.get(idx) - i;
-            else if(locateLen - 1 > idx) {
-                if(i - location.get(idx) > location.get(idx + 1) - i) {
-                    result[i] = location.get(idx + 1) - i;
-                    idx++;
-                }
-                else
-                    result[i] = i - location.get(idx);
+            else if(locateLen - 1 > idx && (i - location.get(idx) > location.get(idx + 1) - i)) {
+                result[i] = location.get(idx + 1) - i;
+                idx++;
             }
             else
-                result[i] = result[i] = i - location.get(idx);
+                result[i] = i - location.get(idx);
         }
         return result;
     }
