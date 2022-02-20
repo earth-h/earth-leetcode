@@ -29,11 +29,12 @@ class Solution {
         Arrays.sort(arr);
         
         for(int i = 0; i < arr.length - 1; i++) {
-            if(arr[i + 1] - arr[i] < minDis) {
+            int diff = arr[i + 1] - arr[i];
+            if(diff < minDis) {
                 result.clear();
                 result.add(new ArrayList<>(Arrays.asList(arr[i], arr[i + 1])));
-                minDis = arr[i + 1] - arr[i];
-            } else if(arr[i + 1] - arr[i] == minDis) {
+                minDis = diff;
+            } else if(diff == minDis) {
                 result.add(new ArrayList<>(Arrays.asList(arr[i], arr[i + 1])));
             }
                 
