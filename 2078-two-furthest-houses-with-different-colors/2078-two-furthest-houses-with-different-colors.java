@@ -3,6 +3,7 @@ class Solution {
         int max = 0;
         Map<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < colors.length; i++) {
+            if(colors.length - 1 - i < max) break;
             if(!map.containsKey(colors[i])) {
                 for(int j = colors.length - 1; j > 0; j--) {
                     if(colors[i] != colors[j]) {
