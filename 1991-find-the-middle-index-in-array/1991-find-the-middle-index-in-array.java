@@ -1,6 +1,6 @@
 class Solution {
     public int findMiddleIndex(int[] nums) {
-        if(nums.length == 1) return 0;
+        //if(nums.length == 1) return 0;
         
         int ans = 0, cur = 0;
     
