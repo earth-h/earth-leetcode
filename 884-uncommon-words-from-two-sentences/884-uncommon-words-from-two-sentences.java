@@ -28,13 +28,20 @@ class Solution {
         //         map.remove(key);
         // }
         
-        Iterator<Entry<String, Integer>> iter = map.entrySet().iterator();
-        while(iter.hasNext()) {
-            Entry<String, Integer> entry = iter.next();
-            if(entry.getValue() > 1)
-                iter.remove();
-        }
+//         Iterator<Entry<String, Integer>> iter = map.entrySet().iterator();
+//         while(iter.hasNext()) {
+//             Entry<String, Integer> entry = iter.next();
+//             if(entry.getValue() > 1)
+//                 iter.remove();
+//         }
         
-        return map.keySet().toArray(new String[map.size()]);
+//         return map.keySet().toArray(new String[map.size()]);
+        
+        List<String> result = new ArrayList<>();
+        for(String key: map.keySet()) {
+            if(map.get(key) == 1)
+                result.add(key);
+        }
+        return result.toArray(new String[result.size()]);
     }
 }
