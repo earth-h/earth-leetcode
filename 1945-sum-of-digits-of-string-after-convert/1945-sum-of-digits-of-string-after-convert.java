@@ -13,7 +13,6 @@ class Solution {
             k--;
             s = Integer.toString(ans);
             ans = sumOfDigits(s);
-            System.out.println("s: " + s + " ans: " + ans);
         }
         return ans;
     }
